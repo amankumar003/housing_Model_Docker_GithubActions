@@ -1,15 +1,18 @@
 import json
 import pickle
-
-from flask import Flask, request, app, jsonify, url_for, render_template
+import gzip
+from flask import Flask, request, jsonify, render_template
 import numpy as np
 import pandas as pd
 
 app = Flask(__name__)
 
-# Load the model
-regmodel = pickle.load(open('regmodel.pkl', 'rb'))
-scalar = pickle.load(open('scaling.pkl', 'rb'))
+# Load the compressed model files
+with gzip.open('regmodel.pkl.gz', 'rb') as f:
+    regmodel = pickle.load(f)
+
+with gzip.open('scaling.pkl.gz', 'rb') as f:
+    scalar = pickle.load(f)
 
 @app.route('/')
 def home():
