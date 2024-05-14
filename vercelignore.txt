@@ -3,3 +3,7 @@ compress_models.py
 __pycache__/
 *.pyc
 *.log
+*.ipynb
+notebooks/
+tests/
+venv/
