@@ -5,8 +5,24 @@
       "src": "app.py",
       "use": "@vercel/python",
       "config": {
-        "includeFiles": ["*.py", "templates/**/*", "static/**/*"],
-        "excludeFiles": ["requirements.txt"]
+        "includeFiles": [
+          "app.py",
+          "templates/**/*",
+          "static/**/*",
+          "regmodel.pkl.gz",
+          "scaling.pkl.gz"
+        ],
+        "excludeFiles": [
+          "compress_models.py",
+          "*.pkl",
+          "__pycache__/**/*",
+          "*.pyc",
+          "*.log",
+          "*.ipynb",
+          "notebooks/**/*",
+          "tests/**/*",
+          "venv/**/*"
+        ]
       }
     }
   ],
